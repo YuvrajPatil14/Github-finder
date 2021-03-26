@@ -4,6 +4,7 @@ import {
   CLEAR_USERS,
   GET_USER,
   GET_REPOS,
+  FETCH_USERS,
 } from "../types";
 
 export default (state, action) => {
@@ -35,6 +36,12 @@ export default (state, action) => {
       return {
         ...state,
         repos: action.payload,
+        loading: false,
+      };
+    case FETCH_USERS:
+      return {
+        ...state,
+        users: action.payload,
         loading: false,
       };
     default:

@@ -12,20 +12,6 @@ import AlertState from "./context/alert/AlertState";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const App = () => {
-  // Fetch user profiles on restart
-  // useEffect(() => {
-  //   setLoading(true);
-  //   (async () => {
-  //     let res = await axios.get(
-  //       `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-  //     );
-  //     console.log(res.data);
-  //     setUsers(res.data);
-  //     setLoading(false);
-  //   })();
-  //   //eslint-disable-next-line
-  // }, []);
-
   return (
     <GithubState>
       <AlertState>

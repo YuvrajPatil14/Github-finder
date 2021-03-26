@@ -8,6 +8,7 @@ import {
   CLEAR_USERS,
   GET_USER,
   GET_REPOS,
+  FETCH_USERS,
 } from "../types";
 
 const GithubState = (props) => {
@@ -66,6 +67,18 @@ const GithubState = (props) => {
 
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  // Fetch user profiles on restart
+
+  const fetchUsers = async () => {
+    let res = await axios.get(
+      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    dispatch({
+      type: FETCH_USERS,
+      payload: res.data,
+    });
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -77,6 +90,7 @@ const GithubState = (props) => {
         clearUsers,
         getUser,
         getUserRepos,
+        fetchUsers,
       }}
     >
       {props.children}
