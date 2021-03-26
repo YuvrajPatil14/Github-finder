@@ -10,6 +10,7 @@
 
 # production
 /build
+netlify.toml
 
 # misc
 .DS_Store
@@ -24,3 +25,5 @@ yarn-error.log*
 
 token.txt
 debug.log
+# Local Netlify folder
+.netlify
